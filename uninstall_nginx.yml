@@ -1,0 +1,11 @@
+---
+- hosts: webservers,local
+  become: true
+  tasks:
+   - name: uninstall
+     yum:
+       name:
+         
+
+         - nginx
+       state: absent

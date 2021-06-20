@@ -1,0 +1,24 @@
+---
+- hosts: webservers,local
+  become: true
+  tasks:
+    - name: installing  httpd
+      yum:
+        name:
+         - httpd
+         - php
+
+        state: present
+
+    - name: httpd start
+      service:
+        name: httpd
+
+
+
+
+        enabled: yes
+        state: started
+        
+
+
