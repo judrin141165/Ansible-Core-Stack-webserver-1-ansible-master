@@ -1,0 +1,14 @@
+---
+- hosts: webservers,local
+  become: yes
+  tasks:
+    - name: create users
+      user:
+       name: "{{item}}"
+      with_items:
+        - john
+        - david
+        - rob
+
+
+

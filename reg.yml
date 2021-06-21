@@ -1,0 +1,22 @@
+---
+ - hosts: webservers
+   become: true
+   tasks:
+     - name: create file
+       file:
+         path: /tmp/newfile
+         state: touch
+       register: ouput
+
+
+     - debug: msg= "register output is {{output}}"
+       notify: restart httpd
+
+   handlers:
+     - name: restart httpd
+       service:
+         name: httpd
+         state: restarted
+
+
+

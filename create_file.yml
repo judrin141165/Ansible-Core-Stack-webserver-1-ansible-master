@@ -1,0 +1,16 @@
+---
+- hosts: webservers,local
+  become: yes
+  tasks:
+    - name: create file
+      file:
+       name: "{{item}}"
+       path: /home/centos/ansible
+       state: touch
+      with_items:
+        - file1
+        - file2
+        - file3
+
+
+
