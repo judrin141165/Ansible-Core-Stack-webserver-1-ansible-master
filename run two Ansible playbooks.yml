@@ -1,0 +1,8 @@
+- name: Run both playbooks
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Run playbook1
+      include_tasks: playbook1.yml
+    - name: Run playbook2
+      include_tasks: playbook2.yml
