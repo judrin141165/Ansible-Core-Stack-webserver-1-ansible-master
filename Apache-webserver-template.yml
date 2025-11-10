@@ -1,0 +1,19 @@
+---
+- name: Configure Apache Web Server
+  hosts: webservers
+  become: yes
+  vars:
+    apache_port: 8080
+    server_name: www.example.com
+    document_root: /var/www/html
+
+  tasks:
+    - name: Copy Apache configuration template
+      template:
+        src: apache.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+
+    - name: Start Apache Web Server
+      service:
+        name: httpd
+        state: started
