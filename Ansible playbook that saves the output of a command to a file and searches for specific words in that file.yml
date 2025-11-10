@@ -1,0 +1,12 @@
+- name: Save command output to file
+  shell: cat /proc/meminfo > meminfo.txt
+  args:
+    creates: meminfo.txt
+
+- name: Search for specific words in file
+  shell: grep -E 'MemTotal|SwapTotal' meminfo.txt
+  register: grep_result
+
+- name: Display results
+  debug:
+    var: grep_result.stdout_lines
