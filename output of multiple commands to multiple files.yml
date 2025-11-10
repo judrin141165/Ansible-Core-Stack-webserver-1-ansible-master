@@ -1,0 +1,14 @@
+- name: Save 'df' command output to file
+  shell: df > df.txt
+  args:
+    creates: df.txt
+
+- name: Save 'free' command output to file
+  shell: free > free.txt
+  args:
+    creates: free.txt
+
+- name: Save 'top' command output to file
+  shell: top -bn1 > top.txt
+  args:
+    creates: top.txt
